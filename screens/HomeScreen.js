@@ -1,8 +1,9 @@
 import React from "react";
-import InputText from "../components/TextInput";
+//mport InputText from "../components/TextInput";
 import PickItem from "../components/PickItem";
 import ButtonComponent from "../components/ButtonComponent";
 import Medicine from "../components/Medicine";
+import drugs from "../data/drugs.json";
 import {
   Image,
   Platform,
@@ -15,7 +16,7 @@ import {
 //import { WebBrowser } from "expo";
 
 import { MonoText } from "../components/StyledText";
-import { TextInput } from "react-native-gesture-handler";
+//import { TextInput } from "react-native-gesture-handler";
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -23,9 +24,13 @@ export default class HomeScreen extends React.Component {
   };
   state = {
     medicine: "",
-    isPressedButton: ""
+    isPressedButton: "",
+    drugs: null,
+    ID: ""
   };
-
+  componentDidMount() {
+    this.setState({ drugs: drugs });
+  }
   handleButton = () => {
     const { isPressedButton } = this.state;
     this.setState({ isPressedButton: !isPressedButton });
@@ -35,12 +40,19 @@ export default class HomeScreen extends React.Component {
     this.setState({ medicine: itemValue, isPressedButton: !isPressedButton });
   };
   render() {
+    // console.log("Here:", this.state.Drugs);
+    // console.log("Here:", this.state.drugs);
+    if (this.state.drugs === null) {
+      return null;
+    }
+    const { title, description, application, id } = this.state.medicine;
     if (this.state.isPressedButton) {
       return (
         <PickItem onChange={this.handlePicker} select={this.state.medicine} />
       );
     }
-    if (this.state.medicine === "gentamicin") {
+    console.log("M", this.state.medicine);
+    if (this.state.medicine !== "") {
       return (
         <View style={styles.container}>
           <ScrollView
@@ -63,7 +75,11 @@ export default class HomeScreen extends React.Component {
               />
             </View>
             <View>
-              <Medicine />
+              <Medicine
+                title={title}
+                description={description}
+                application={application}
+              />
             </View>
           </ScrollView>
         </View>
@@ -78,13 +94,13 @@ export default class HomeScreen extends React.Component {
           <View style={styles.welcomeContainer}>
             <MonoText style={styles.welcomeText}> Vitajte </MonoText>
             {/* <Image
-              source={
-                __DEV__
-                  ? require('../assets/images/robot-dev.png')
-                  : require('../assets/images/robot-prod.png')
-              }
-              style={styles.welcomeImage}
-            /> */}
+                 source={
+                   __DEV__
+                     ? require('../assets/images/robot-dev.png')
+                     : require('../assets/images/robot-prod.png')
+                 }
+                 style={styles.welcomeImage}
+               /> */}
           </View>
 
           <View style={styles.getStartedContainer}>
@@ -97,7 +113,7 @@ export default class HomeScreen extends React.Component {
               onChange={this.handleButton}
               title="Vyberte si liek"
             />
-            <Text>{this.state.medicine}</Text>
+            <Text>{this.state.id}</Text>
           </View>
         </ScrollView>
       </View>

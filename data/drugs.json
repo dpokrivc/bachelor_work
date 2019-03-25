@@ -1,0 +1,24 @@
+{
+  "drugs": [
+    {
+      "id": "1",
+      "title": "Gentamicín",
+      "description": "Gentamicín je indikovaný na liečbu ťažkých systémových infekcií. Používa sa na liečbu bakteriálnych infekcií spôsobené neznámymi mikroorganizmami a pri ochoreniach vážne poškodzujúcic imunitu",
+      "application": "Intravenózne a intramuskulárne",
+      "dosage": "3-6 mg/kg, 1 až 2 dávky denne",
+      "kontraindications": "",
+      "halftimeelimination": "3",
+      "distributivevolume": "0,25"
+    },
+    {
+      "id": "2",
+      "title": "Vankomycín",
+      "description": "Vankomycín je indikovaný všetkým vekovým skupinám na liečbu infekcií kože, kostí a kĺbov. Taktiež na liečbu pneumónie.",
+      "application": "Intravenózne a peroralne",
+      "dosage": "15-20mg/kg, 8 hod",
+      "kontraindications": "",
+      "halftimeelimination": "5",
+      "distributivevolume": "?"
+    }
+  ]
+}

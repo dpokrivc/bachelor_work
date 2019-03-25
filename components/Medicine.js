@@ -4,9 +4,12 @@ import { MonoText } from "../components/StyledText";
 
 export default class Medicine extends React.Component {
   render() {
+    const { title, description, application } = this.props;
     return (
       <View>
-        <MonoText style={styles.title}>Gentamicin</MonoText>
+        <MonoText style={styles.title}>{title}</MonoText>
+        <MonoText>Opis: {description}</MonoText>
+        <MonoText>Aplikacia :{application}</MonoText>
         <Image
           source={
             __DEV__
