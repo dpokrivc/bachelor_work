@@ -13,7 +13,6 @@ export default class PickItem extends React.Component {
   render() {
     const { onChange, select } = this.props;
     if (this.state.drugs !== null) {
-      console.log("HEre");
       return (
         <Picker selectedValue={select} onValueChange={onChange}>
           {this.state.drugs.drugs.map((drug, index) => {

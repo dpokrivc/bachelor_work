@@ -1,15 +1,20 @@
 import React from "react";
 import { View, StyleSheet, Image } from "react-native";
-import { MonoText } from "../components/StyledText";
+import { Text, Title, Paragraph, Card } from "react-native-paper";
 
 export default class Medicine extends React.Component {
   render() {
     const { title, description, application } = this.props;
     return (
-      <View>
-        <MonoText style={styles.title}>{title}</MonoText>
-        <MonoText>Opis: {description}</MonoText>
-        <MonoText>Aplikacia :{application}</MonoText>
+      <View style={styles.container}>
+        <Card style={styles.card}>
+          <Text style={styles.title}>{title}</Text>
+        </Card>
+        <Text style={styles.titleText}>Popis:</Text>
+        <Paragraph style={styles.description}>{description}</Paragraph>
+        <Text style={styles.titleText}>Aplikacia:</Text>
+        <Paragraph style={styles.description}>{application}</Paragraph>
+        <Text style={styles.titleText}>Graf:</Text>
         <Image
           source={
             __DEV__
@@ -24,6 +29,10 @@ export default class Medicine extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff"
+  },
   welcomeImage: {
     width: 320,
     height: 220,
@@ -31,8 +40,31 @@ const styles = StyleSheet.create({
     marginTop: 3,
     marginLeft: -10
   },
+  card: {
+    backgroundColor: "skyblue",
+    paddingTop: 10
+  },
   title: {
     paddingLeft: 10,
-    fontSize: 26
+    paddingBottom: 20,
+    fontSize: 35,
+    textAlign: "center",
+    textAlignVertical: "center",
+    color: "#fff",
+    letterSpacing: 3,
+    fontWeight: "bold"
+  },
+  titleText: {
+    fontWeight: "bold",
+    fontSize: 25,
+    textAlign: "center",
+    color: "skyblue"
+  },
+  description: {
+    paddingLeft: 10,
+    fontSize: 16,
+    lineHeight: 20,
+    paddingRight: 10,
+    textAlign: "center"
   }
 });

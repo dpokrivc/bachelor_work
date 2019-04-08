@@ -3,13 +3,16 @@ import React from "react";
 import PickItem from "../components/PickItem";
 import ButtonComponent from "../components/ButtonComponent";
 import Medicine from "../components/Medicine";
+import DrugItem from "../components/DrugItem";
 import drugs from "../data/drugs.json";
+import Timer from "../components/Timer";
 import {
   Image,
   Platform,
   ScrollView,
   StyleSheet,
   Text,
+  Button,
   TouchableOpacity,
   View
 } from "react-native";
@@ -26,6 +29,7 @@ export default class HomeScreen extends React.Component {
     medicine: "",
     isPressedButton: "",
     drugs: null,
+    isPressedTimer: false,
     ID: ""
   };
   componentDidMount() {
@@ -35,23 +39,36 @@ export default class HomeScreen extends React.Component {
     const { isPressedButton } = this.state;
     this.setState({ isPressedButton: !isPressedButton });
   };
+  handleTimer = () => {
+    const { isPressedTimer } = this.state;
+    this.setState({ isPressedTimer: !isPressedTimer });
+  };
   handlePicker = itemValue => {
     const { isPressedButton } = this.state;
     this.setState({ medicine: itemValue, isPressedButton: !isPressedButton });
   };
+  handleDrugItem = item => {
+    this.setState({ medicine: item });
+  };
   render() {
-    // console.log("Here:", this.state.Drugs);
-    // console.log("Here:", this.state.drugs);
     if (this.state.drugs === null) {
       return null;
     }
-    const { title, description, application, id } = this.state.medicine;
+    const {
+      title,
+      description,
+      application,
+      dosage,
+      timing
+    } = this.state.medicine;
     if (this.state.isPressedButton) {
       return (
         <PickItem onChange={this.handlePicker} select={this.state.medicine} />
       );
     }
-    console.log("M", this.state.medicine);
+    if (this.state.isPressedTimer) {
+      return <Timer dosage={dosage} period={timing} />;
+    }
     if (this.state.medicine !== "") {
       return (
         <View style={styles.container}>
@@ -59,27 +76,20 @@ export default class HomeScreen extends React.Component {
             style={styles.container}
             contentContainerStyle={styles.contentContainer}
           >
-            <View style={styles.welcomeContainer}>
-              <MonoText style={styles.welcomeText}> Vitajte </MonoText>
-            </View>
-
-            <View style={styles.getStartedContainer}>
-              <MonoText style={styles.getStartedText}>
-                Toto je aplikacia, ktora vam pomaha pri davkovani liekov
-              </MonoText>
-            </View>
-            <View>
-              <ButtonComponent
-                onChange={this.handleButton}
-                title="Vyberte si liek"
-              />
-            </View>
             <View>
               <Medicine
                 title={title}
                 description={description}
                 application={application}
               />
+            </View>
+            <View style={styles.buttonContainer}>
+              <View style={styles.button}>
+                <Button title="Upozornenia" onPress={this.handleTimer} />
+              </View>
+              <View style={styles.button}>
+                <Button onPress={this.handleButton} title="Vyberte si liek" />
+              </View>
             </View>
           </ScrollView>
         </View>
@@ -92,28 +102,20 @@ export default class HomeScreen extends React.Component {
           contentContainerStyle={styles.contentContainer}
         >
           <View style={styles.welcomeContainer}>
-            <MonoText style={styles.welcomeText}> Vitajte </MonoText>
-            {/* <Image
-                 source={
-                   __DEV__
-                     ? require('../assets/images/robot-dev.png')
-                     : require('../assets/images/robot-prod.png')
-                 }
-                 style={styles.welcomeImage}
-               /> */}
-          </View>
-
-          <View style={styles.getStartedContainer}>
-            <MonoText style={styles.getStartedText}>
-              Toto je aplikacia, ktora vam pomaha pri davkovani liekov
-            </MonoText>
+            <Text style={styles.welcomeText}>Vyberte si liek !</Text>
           </View>
           <View>
-            <ButtonComponent
-              onChange={this.handleButton}
-              title="Vyberte si liek"
-            />
-            <Text>{this.state.id}</Text>
+            <View>
+              {this.state.drugs.drugs.map((drug, key) => {
+                return (
+                  <DrugItem
+                    key={key}
+                    med={drug}
+                    onChange={this.handleDrugItem}
+                  />
+                );
+              })}
+            </View>
           </View>
         </ScrollView>
       </View>
@@ -124,7 +126,22 @@ export default class HomeScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff"
+    backgroundColor: "#7bc2e7"
+  },
+  button: {
+    flex: 1,
+    borderRadius: 10,
+    backgroundColor: "#fff",
+    marginTop: 3,
+    marginRight: 5,
+    marginLeft: 5,
+    marginBottom: 3
+  },
+  buttonContainer: {
+    flex: 1,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center"
   },
   developmentModeText: {
     marginBottom: 20,
@@ -149,7 +166,8 @@ const styles = StyleSheet.create({
     marginLeft: -10
   },
   welcomeText: {
-    fontSize: 28
+    fontSize: 28,
+    color: "#fff"
   },
   inputName: {
     fontSize: 14,
