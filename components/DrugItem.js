@@ -1,8 +1,6 @@
 import * as React from "react";
 import { StyleSheet, Button, View } from "react-native";
 import { Avatar, Card, Title, Paragraph } from "react-native-paper";
-import ButtonComponent from "../components/ButtonComponent";
-import { NativeScreen } from "react-native-screens";
 
 export default class DrugItem extends React.Component {
   render() {

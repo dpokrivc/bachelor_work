@@ -60,15 +60,18 @@ export default class Timer extends React.Component {
 
     console.log("Here:", YOUR_PUSH_TOKEN);
     alert("Notifikacie nastavene");
-    // Notifications.cancelAllScheduledNotificationsAsync();
     Notifications.scheduleLocalNotificationAsync(message, schedulingOptions);
   };
   cancelNotification = async () => {
     Notifications.cancelAllScheduledNotificationsAsync();
   };
+  backToMainMenu = () => {
+    this.props.navigation.popToTop();
+  };
 
   render() {
-    const { dosage, period } = this.props;
+    const dosage = this.props.navigation.getParam("dosage");
+    const period = this.props.navigation.getParam("period");
     return (
       <View style={styles.container}>
         <Title style={styles.title}>Upozornenie</Title>
@@ -85,6 +88,12 @@ export default class Timer extends React.Component {
           <Button
             title={"Zrusit upozornenia"}
             onPress={() => this.cancelNotification()}
+          />
+        </Card>
+        <Card>
+          <Button
+            title={"Spat na hlavne menu"}
+            onPress={() => this.backToMainMenu()}
           />
         </Card>
       </View>

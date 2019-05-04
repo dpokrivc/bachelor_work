@@ -1,37 +1,37 @@
 {
   "drugs": [
     {
-      "id": "1",
       "title": "Gentamicín",
       "paragraph": "Gentamicín je antibiotikum so šírokým spektrom účinku ale využíva sa iba pri závažných infekciách a sepse, pretože jeho toxicita je vysoká.",
-      "description": "Gentamicín je indikovaný na liečbu ťažkých systémových infekcií. Používa sa na liečbu bakteriálnych infekcií spôsobené neznámymi mikroorganizmami a pri ochoreniach vážne poškodzujúcic imunitu. Je to širokospektrálne antibiotikum ale môže zapríčíniť poruchu pečene alebo uší. Zvýšená opatrnosť sa vyskytuje u pacientov s vážnou poruchou obličiek a s existujúcimi neuromuskulárnymi chorobamu. U niektorých jedincov môže spôsobovať vo vysokých dávkach poruchy rovnováhy spojené s nutkaním na vracanie. Po hodine až dvoch sa dostaví maximálna koncentrácia v krvi.",
+      "description": "Gentamicín je indikovaný na liečbu ťažkých systémových infekcií. Používa sa na liečbu bakteriálnych infekcií spôsobené neznámymi mikroorganizmami a pri ochoreniach vážne poškodzujúcich imunitu. Je to širokospektrálne antibiotikum ale môže zapríčíniť poruchu pečene alebo uší. Zvýšená opatrnosť sa vyskytuje u pacientov s vážnou poruchou obličiek a s existujúcimi neuromuskulárnymi chorobami. U niektorých jedincov môže spôsobovať vo vysokých dávkach poruchy rovnováhy spojené s nutkaním na vracanie. Po hodine až dvoch sa dostaví maximálna koncentrácia v krvi.",
       "application": "Intravenózne a intramuskulárne",
       "dosage": "3-6 mg/kg",
       "timing": "24",
-      "kontraindications": "",
-      "halftimeelimination": "3"
+      "sideeffects": "Porucha funkcie obličiek je pri gentamicíne bežná a je väčšinou vratná",
+      "halftimeelimination": "3",
+      "graphName": "gentamicin"
     },
     {
-      "id": "2",
       "title": "Vankomycín",
       "paragraph": "Amycolatopsis orientalis sa používa na liečbu mnoho infekcií. V celosvetovej organizácií WHO je považovaný za veľmi efektívny a bezpečný liek",
       "description": "Vankomycín je indikovaný všetkým vekovým skupinám na liečbu infekcií kože, kostí a kĺbov. Taktiež na liečbu pneumónie. 75-80% vankomicýnu sa po 24 hodinách vylúči močom.",
       "application": "Intravenózne a peroralne. Nesmie sa podávať intramuskulárne vzhľadom na riziko nekrózy v mieste podania.",
       "dosage": "15-20mg/kg",
       "timing": "8",
-      "kontraindications": "",
-      "halftimeelimination": "5"
+      "sideeffects": " Pokles krvného tlaku, sťažené dýchanie, hlasité dýchanie (vysoký pískavý zvuk následkom zúženia prúdenia vzduchu v horných dýchacích cestách);vyrážka a zápal na sliznici úst, svrbenie, svrbivá vyrážka, žihľavka, poruchy funkcie obličiek, ktoré môžu byť hlavne zistené pri krvných testoch, sčervenenie hornej časti tela a tváre, zápal žily.",
+      "halftimeelimination": "5",
+      "graphName": "vankomicin"
     },
     {
-      "id": "3",
       "title": "Penicilín G",
       "paragraph": "Benzylpenicilín bol objavený slávnym Alexandrom Flemingom a je veľmi účinný pri liečbe bakteriálnych infekcií ako sú gangréna, tetanus, pneumónia.",
       "description": "Benzylpenicilín alebo draseľná soľ je liekom prvej voľby pri pneumóniach, pri pneumokokových meninigitídach. Taktiež je veľmi účinný pri liečbe syfilisu a u pacientov s HIV. Zaujímavosťou je, že je prvou pomocou pri otrave muchotrávkou zelenou a ďalšími 27 druhmi hubami. Dávkovanie je určené na každých 4-6 hodín. Na jednu dávku obsahuje vysoké množstvo draslíka. Je to antibiotikum s veľmi nízkou toxicitou. Veľmi rýchle vstrebávanie už do 15-30 minút",
       "application": "Intramuskulárne, intravenózne alebo aj lokálne(perorálne)",
       "dosage": "15-20mg/kg",
       "timing": "5",
-      "kontraindications": "Pacienti s alergiou, sennou nádchou alebo žihľavkou by sa mali tomuto antibiotiku vyhnúť.",
-      "halftimeelimination": "0,4-0,65 h"
+      "sideeffects": "Krvácanie, hemolytická anémia (nedostatok červených krviniek), eozinofília (nadmerné zvýšenie počtu eozinofilov v krvi a kostnej dreni), trombocytopénia (nedostatok krvných doštičiek v krvi),poruchy krvotvorby, najťažším prejavom je anafylaktická reakcia (náhla alergická reakcia), ktorá sa dostaví o 1 - 2 minúty po podaní (niekedy do pol hodiny i neskôr) formou kolapsu až srdcovo-dýchacieho zlyhania s prípadným smrteľným koncom, žihľavka, horúčka, bolesti kĺbov, angioneurotický edém (opuch tváre, pier, jazyka a/alebo hrdla s ťažkosťami pri prehĺtaní alebo dýchaní)",
+      "halftimeelimination": "0,4-0,65 h",
+      "graphName": "penicilinG"
     }
   ]
 }
